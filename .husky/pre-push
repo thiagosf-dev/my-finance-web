@@ -1,0 +1,51 @@
+#!/usr/bin/env sh
+
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+CYAN="\033[0;36m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
+echo ""
+printf "${BOLD}${CYAN}⬡ Husky • Pre-push hook iniciado${RESET}\n"
+echo ""
+
+printf "${YELLOW}1/3 → Checando tipos com TypeScript (npm run typecheck)...${RESET}\n"
+npm run typecheck
+status=$?
+if [ $status -ne 0 ]; then
+    echo ""
+    printf "${RED}✖ Falha na checagem de tipos.${RESET}\n"
+    printf "${RED}   Corrija os erros do TypeScript antes de realizar o push.${RESET}\n"
+    echo ""
+    exit $status
+fi
+printf "${GREEN}✔ Typecheck OK${RESET}\n\n"
+
+printf "${YELLOW}2/3 → Rodando lint com Biome (npm run lint)...${RESET}\n"
+npm run lint
+status=$?
+if [ $status -ne 0 ]; then
+    echo ""
+    printf "${RED}✖ Falha no lint.${RESET}\n"
+    printf "${RED}   Corrija os problemas apontados pelo Biome antes de realizar o push.${RESET}\n"
+    echo ""
+    exit $status
+fi
+printf "${GREEN}✔ Lint OK${RESET}\n\n"
+
+printf "${YELLOW}3/3 → Rodando testes (npm run test)...${RESET}\n"
+npm run test
+status=$?
+if [ $status -ne 0 ]; then
+    echo ""
+    printf "${RED}✖ Testes falharam.${RESET}\n"
+    printf "${RED}   Corrija os testes antes de realizar o push.${RESET}\n"
+    echo ""
+    exit $status
+fi
+printf "${GREEN}✔ Testes OK${RESET}\n\n"
+
+printf "${BOLD}${GREEN}🚀 Todas as verificações passaram. Push liberado!${RESET}\n"
+echo ""

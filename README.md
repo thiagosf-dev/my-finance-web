@@ -1,73 +1,22 @@
-# React + TypeScript + Vite
+# 💸 MY FINANCE WEB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web moderna para gestão financeira pessoal, construída com **React 19**, **TypeScript**, **Vite** e uma stack focada em **performance**, **qualidade** e **experiência de uso**.
 
-Currently, two official plugins are available:
+> Controles financeiros, UI animada, arquitetura limpa e pronta para crescer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🏷️ Badges & Tech
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=000000&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?logo=typescript&style=for-the-badge)
+![Vite](https://img.shields.io/badge/Vite-7.x-646cff?logo=vite&logoColor=ffffff&style=for-the-badge)
+![Node](https://img.shields.io/badge/Node-22%2B-339933?logo=node.js&logoColor=ffffff&style=for-the-badge)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38b2ac?logo=tailwind-css&logoColor=ffffff&style=for-the-badge)
+![Biome](https://img.shields.io/badge/Code_Style-Biome-32cd32?style=for-the-badge)
+![Vitest](https://img.shields.io/badge/Tests-Vitest-6e9f18?logo=vitest&style=for-the-badge)
+![MSW](https://img.shields.io/badge/API-MSW-ff6a3d?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Ready-0db7ed?logo=docker&style=for-the-badge)
+![Nginx](https://img.shields.io/badge/Nginx-Alpine-009639?logo=nginx&style=for-the-badge)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---

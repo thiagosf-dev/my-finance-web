@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+YELLOW="\033[1;33m"
+CYAN="\033[0;36m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
+# $2 = source (message, commit, merge, template, ...) – usamos só pra log
+SOURCE="$2"
+
+echo ""
+printf "${BOLD}${CYAN}⬡ Husky • Prepare-commit-msg hook${RESET}\n"
+
+# Se o commit estiver vindo de merge ou revert, não incomoda
+if [ "$SOURCE" = "merge" ] || [ "$SOURCE" = "commit" ]; then
+    exit 0
+fi
+
+printf "${YELLOW}↪ Dica: utilize 'npm run commit' para gerar mensagens no padrão Conventional Commits (Commitizen).${RESET}\n"
+echo ""

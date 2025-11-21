@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+CYAN="\033[0;36m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
+echo ""
+printf "${BOLD}${CYAN}⬡ Husky • Pre-commit hook iniciado${RESET}\n"
+printf "${YELLOW}→ Verificando arquivos staged com lint-staged (Biome)...${RESET}\n"
+echo ""
+
+npm run lint-staged
+status=$?
+
+if [ $status -ne 0 ]; then
+    echo ""
+    printf "${RED}✖ Pre-commit falhou.${RESET}\n"
+    printf "${RED}   Corrija os problemas apontados pelo Biome antes de commitar.${RESET}\n"
+    echo ""
+    exit $status
+fi
+
+echo ""
+printf "${GREEN}✔ Lint e formatação aplicados com sucesso nos arquivos staged.${RESET}\n"
+printf "${CYAN}⬢ Pre-commit concluído. Prosseguindo com o commit...${RESET}\n"
+echo ""
